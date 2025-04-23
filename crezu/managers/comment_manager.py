@@ -35,8 +35,6 @@ class CommentManager:
         return db_comment
 
     def get_comment(self, comment_id: int) -> tables.Comment:
-        print(self.session.execute(
-            """SELECT name FROM sqlite_master WHERE type='table';""").fetchall())
         comment = self.session.query(tables.Comment).filter(
             tables.Comment.id == comment_id).first()
 
